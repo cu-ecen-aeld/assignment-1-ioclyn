@@ -25,10 +25,10 @@ if [ ! -d "$1" ]; then
 fi
 
 # Operation to get the files inside argument 1
-x=$(tree $1 | wc -l)
+num_files=$(find "$filesdir" -type f | wc -l)
 
 # Operation to obtain number of matching lines
-y=$(grep -inr "$2" "$1" | wc -l)
+num_lines=$(grep -r "$searchstr" "$filesdir" | wc -l)
 
 # Print output
-echo "The number of files are $x and the number of matching lines are $y"
+echo "The number of files are $num_files and the number of matching lines are $num_lines"
